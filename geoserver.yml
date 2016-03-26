@@ -1,0 +1,10 @@
+---
+- hosts: dev
+  remote_user: ec2-user
+  tasks:
+  - name: Setup OpenGeo repo
+    script: /scripts/OpenGeo.sh
+    template: src=/templates/OpenGeo.repo dest=/etc/yum.repos.d/OpenGeo.repo
+
+ - name: install GeoServer
+   yum: name=opengeo-server state=install
