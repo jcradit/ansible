@@ -15,12 +15,12 @@
       count: 1
       vpc_subnet_id: subnet-f54e04b3
       private_ip: 192.168.100.20
-  - name: get repo keys
+- name: get repo keys
     hosts: dev
     script: ./scripts/OpenGeo.sh
-  - name: copy repo
+- name: copy repo
     hosts: dev
     template: src=./Templates/OpenGeo.repo dest=/etc/yum.repos.d/OpenGeo.repo
-  - name: install GeoServer
-    hosts: 192.168.100.20
+- name: install GeoServer
+    hosts: dev
     yum: name=opengeo-server state=present
