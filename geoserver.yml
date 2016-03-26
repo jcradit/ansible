@@ -3,6 +3,18 @@
   remote_user: ec2-user
   become: yes
   tasks:
+  - name: create ec2 instance
+    ec2:
+      key_name: willbrosec2key
+      instance_tags:
+        name: geoserver_ansible
+      instance_type: t2.micro
+      image: ami-00a11e68
+      wait: yes
+      group: Ansible
+      count: 1
+      vpc_subnet_id: subnet-f54e04b3
+      private_ip: 192.168.100.20
   - name: get repo keys
     script: ./scripts/OpenGeo.sh
   - name: copy repo
