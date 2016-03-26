@@ -1,5 +1,5 @@
 ---
-- hosts: dev
+- hosts: localhost
   remote_user: ec2-user
   become: yes
   tasks:
@@ -16,8 +16,11 @@
       vpc_subnet_id: subnet-f54e04b3
       private_ip: 192.168.100.20
   - name: get repo keys
+    hosts: 192.168.100.20
     script: ./scripts/OpenGeo.sh
   - name: copy repo
+    hosts: 192.168.100.20
     template: src=./Templates/OpenGeo.repo dest=/etc/yum.repos.d/OpenGeo.repo
   - name: install GeoServer
+    hosts: 192.168.100.20
     yum: name=opengeo-server state=present
