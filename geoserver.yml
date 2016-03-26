@@ -8,4 +8,4 @@
   - name: copy repo
     template: src=./Templates/OpenGeo.repo dest=/etc/yum.repos.d/OpenGeo.repo
   - name: install GeoServer
-    yum: name=opengeo-server state=install
+    yum: name=opengeo-server state=present
