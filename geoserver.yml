@@ -6,7 +6,7 @@
   tasks:
   - name: create ec2 instance
     ec2:
-      region: ec2.us-east-1.amazonaws.com
+      region: us-east-1
       key_name: willbrosec2key
       instance_tags:
         name: geoserver_ansible
