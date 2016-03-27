@@ -1,11 +1,13 @@
 ---
 - hosts: localhost
+  connection: local
   gather_facts: False
 
   tasks:
   - name: create ec2 instance
-    connection: local
     ec2:
+      aws_access_key: {{ lookup('env', 'AWS_ACCESS_KEY_ID') }}
+      aws_secret_key: {{ lookup('env', 'AWS_SECRET_ACCESS_KEY') }}
       region: us-east-1
       key_name: willbrosec2key
       instance_tags:
