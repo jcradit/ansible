@@ -10,6 +10,6 @@
     - name: install GeoServer
       yum: name=opengeo-server state=present
     - name: install GDAL
-      shell: /opt/ansible/scripts/gdal.sh
+      script: /opt/ansible/scripts/gdal.sh
     - name: install gdal-mrsid
       yum: name=gdal-mrsid state=present
