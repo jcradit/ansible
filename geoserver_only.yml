@@ -1,0 +1,22 @@
+---
+- hosts: geoserver
+  connection: local
+  gather_facts: False
+
+  name: configuration play
+  user: ec2-user
+  gather_facts: true
+  remote_user: ec2-user
+  become: yes
+  tasks:
+    - name: get repo keys
+      script: ./scripts/OpenGeo.sh
+    - name: copy repo
+      template: src=./Templates/OpenGeo.repo dest=/etc/yum.repos.d/OpenGeo.repo
+    - name: install GeoServer
+      yum: name=opengeo-server state=present
+    - name: install GDAL
+      shell: gdal.sh
+    -name:
+      yum: name=gdal-mrsid state=present
+        
