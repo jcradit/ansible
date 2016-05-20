@@ -3,7 +3,7 @@
   connection: local
   gather_facts: False
 
-  name: configuration play
+  - name: Geoserver Build
   user: ec2-user
   gather_facts: true
   remote_user: ec2-user
@@ -17,6 +17,5 @@
       yum: name=opengeo-server state=present
     - name: install GDAL
       shell: gdal.sh
-    -name:
+    - name:
       yum: name=gdal-mrsid state=present
-        
