@@ -1,5 +1,6 @@
 cd /opt
-if  [ -f "geoserver-2.8.1-gdal-plugin.zip"]
+file="/opt/geoserver-2.8.1-gdal-plugin.zip"
+if  [ -f "$file" ]
 then
   echo "already done"
   exit 0
