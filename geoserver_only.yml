@@ -16,6 +16,6 @@
     - name: install GeoServer
       yum: name=opengeo-server state=present
     - name: install GDAL
-      shell: gdal.sh
-    - name:
+      shell: ./scripts/gdal.sh
+    - name: install gdal-mrsid
       yum: name=gdal-mrsid state=present
