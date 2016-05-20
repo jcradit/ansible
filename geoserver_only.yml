@@ -4,12 +4,12 @@
   become: yes
   tasks:
     - name: get repo keys
-      script: ./scripts/OpenGeo.sh
+      script: /opt/ansible/scripts/OpenGeo.sh
     - name: copy repo
       template: src=./Templates/OpenGeo.repo dest=/etc/yum.repos.d/OpenGeo.repo
     - name: install GeoServer
       yum: name=opengeo-server state=present
     - name: install GDAL
-      shell: ./scripts/gdal.sh
+      shell: /opt/ansible/scripts/gdal.sh
     - name: install gdal-mrsid
       yum: name=gdal-mrsid state=present
