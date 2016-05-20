@@ -13,3 +13,7 @@
       script: /opt/ansible/scripts/gdal.sh
     - name: install gdal-mrsid
       yum: name=gdal-mrsid state=present
+    - name: install jdbc
+      script: /opt/ansible/scripts/jdbc.sh
+    - name: restart services
+      service: name=tomcat state=restarted
