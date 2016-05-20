@@ -1,13 +1,6 @@
 ---
 - hosts: geoserver
-  connection: local
-  gather_facts: False
-
-  - name: Geoserver Build
-  user: ec2-user
-  gather_facts: true
   remote_user: ec2-user
-  become: yes
   tasks:
     - name: get repo keys
       script: ./scripts/OpenGeo.sh
