@@ -15,5 +15,7 @@
       yum: name=gdal-mrsid state=present
     - name: install jdbc
       script: /opt/ansible/scripts/jdbc.sh
+    - name: mount the nfs
+      script: /opt/ansible/scripts/mounts.sh
     - name: restart services
       service: name=tomcat state=restarted
