@@ -19,3 +19,9 @@
       script: /opt/ansible/scripts/mounts.sh
     - name: restart services
       service: name=tomcat state=restarted
+    - name: config data directory
+template:
+      /usr/share/opengeo/geoserver/WEB-INF/web.xml
+
+      -name: jdbc config template
+      /var/lib/opengeo/geoserver/jdbcconfig/jdbcconfig.properties 
